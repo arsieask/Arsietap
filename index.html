@@ -5,8 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ARSIETAP</title>
     <script src="paper-full.js"></script>
-    <script type="text/paperscript" canvas="myCanvas"></script>
     <link rel="stylesheet" href="styles.css">
+    <script type="text/paperscript" canvas="myCanvas">
+
+        function onKeyDown(event) {
+            // maximum point in current window
+            var maxPoint = new Point(view.size.width, view.size.height);
+            // random point in (0,1)
+            var randomPoint = Point.random();
+            // random point in current window size
+            var point = maxPoint * randomPoint;
+            new Path.Circle(point, 10).fillColor = 'yellow';
+        }
+    
+    </script>
 </head>
 <body>
     <canvas id="myCanvas" resize></canvas>
